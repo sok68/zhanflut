@@ -1,0 +1,11 @@
+class MyClass {
+  final String name;
+  final int age;
+  
+  MyClass(this.name, this.age);
+}
+
+void main() {
+  var obj = MyClass('John', 30);
+  print('Name: ${obj.name}, Age: ${obj.age}');
+}
