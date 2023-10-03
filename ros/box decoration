@@ -1,0 +1,15 @@
+Container(
+  decoration: BoxDecoration(
+    color: Colors.blue, // Фоновый цвет
+    border: Border.all(color: Colors.black), // Граница
+    borderRadius: BorderRadius.circular(10.0), // Скругление углов
+    boxShadow: [
+      BoxShadow(
+        color: Colors.grey,
+        offset: Offset(2, 2),
+        blurRadius: 4.0,
+      ),
+    ], // Тень
+  ),
+  child: Text('Пример текста в контейнере'),
+)
