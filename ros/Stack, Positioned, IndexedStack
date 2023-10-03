@@ -1,0 +1,73 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Пример Stack, Positioned, IndexedStack'),
+        ),
+        body: MyStackExample(),
+      ),
+    );
+  }
+}
+
+class MyStackExample extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Stack(
+        alignment: Alignment.center,
+        children: <Widget>[
+          // Один виджет находится под другим
+          Container(
+            width: 200,
+            height: 200,
+            color: Colors.blue,
+          ),
+          // Позиционированный виджет поверх первого
+          Positioned(
+            top: 50,
+            left: 50,
+            child: Container(
+              width: 100,
+              height: 100,
+              color: Colors.red,
+            ),
+          ),
+          // Второй позиционированный виджет
+          Positioned(
+            bottom: 50,
+            right: 50,
+            child: Container(
+              width: 100,
+              height: 100,
+              color: Colors.green,
+            ),
+          ),
+          // Используется IndexedStack для переключения видимости
+          IndexedStack(
+            index: 0,
+            children: [
+              Container(
+                width: 200,
+                height: 200,
+                color: Colors.yellow,
+              ),
+              Text(
+                'Этот текст виден только при индексе 0',
+                style: TextStyle(fontSize: 18, color: Colors.white),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
