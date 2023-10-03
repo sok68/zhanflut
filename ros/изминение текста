@@ -1,0 +1,30 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Пример изменения шрифта'),
+        ),
+        body: Center(
+          child: Text(
+            'Привет, мир!',
+            style: TextStyle(
+              fontSize: 24.0,
+              fontFamily: 'Roboto', // Установка шрифта
+              fontWeight: FontWeight.bold, // Установка насыщенности шрифта
+              fontStyle: FontStyle.italic, // Установка стиля шрифта
+              color: Colors.blue, // Установка цвета шрифта
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
