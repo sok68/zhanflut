@@ -1,0 +1,49 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      // Устанавливаем собственную тему приложения
+      theme: ThemeData(
+        primaryColor: Colors.blue, // Основной цвет приложения
+        accentColor: Colors.orange, // Вторичный цвет (акцент)
+        fontFamily: 'Roboto', // Шрифт по умолчанию
+        textTheme: TextTheme(
+          // Стили текста по умолчанию
+          headline1: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          headline2: TextStyle(fontSize: 18, fontStyle: FontStyle.italic),
+        ),
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Пример собственной темы приложения'),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Привет, мир!',
+                style: Theme.of(context).textTheme.headline1, // Используем стиль из темы
+              ),
+              Text(
+                'Это пример собственной темы в Flutter',
+                style: Theme.of(context).textTheme.headline2, // Используем стиль из темы
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text('Нажми меня'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
