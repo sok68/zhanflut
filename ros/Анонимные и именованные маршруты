@@ -1,0 +1,90 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      initialRoute: '/', // Начальный маршрут
+      routes: {
+        '/': (context) => FirstScreen(), // Именованный маршрут "/"
+        '/second': (context) => SecondScreen(), // Именованный маршрут "/second"
+      },
+      onGenerateRoute: (settings) {
+        // Анонимный маршрут
+        if (settings.name == '/third') {
+          return MaterialPageRoute(
+            builder: (context) => ThirdScreen(),
+          );
+        }
+      },
+      home: FirstScreen(), // Экран по умолчанию
+    );
+  }
+}
+
+class FirstScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Первый экран'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            // Переход к второму экрану с использованием именованного маршрута
+            Navigator.pushNamed(context, '/second');
+          },
+          child: Text('Перейти ко второму экрану'),
+        ),
+      ),
+    );
+  }
+}
+
+class SecondScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Второй экран'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            // Возвращение на предыдущий экран
+            Navigator.pop(context);
+          },
+          child: Text('Вернуться на первый экран'),
+        ),
+      ),
+    );
+  }
+}
+
+class ThirdScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Третий экран (анонимный маршрут)'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            // Переход к второму экрану с использованием анонимного маршрута
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SecondScreen()),
+            );
+          },
+          child: Text('Перейти ко второму экрану'),
+        ),
+      ),
+    );
+  }
+}
