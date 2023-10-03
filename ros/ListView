@@ -1,0 +1,42 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Пример ListView'),
+        ),
+        body: MyListView(),
+      ),
+    );
+  }
+}
+
+class MyListView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: <Widget>[
+        ListTile(
+          leading: Icon(Icons.star),
+          title: Text('Звезда 1'),
+        ),
+        ListTile(
+          leading: Icon(Icons.star),
+          title: Text('Звезда 2'),
+        ),
+        ListTile(
+          leading: Icon(Icons.star),
+          title: Text('Звезда 3'),
+        ),
+        // Добавьте еще элементов ListTile, если необходимо
+      ],
+    );
+  }
+}
