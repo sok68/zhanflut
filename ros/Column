@@ -1,0 +1,8 @@
+Column(
+  mainAxisAlignment: MainAxisAlignment.center, // Выравнивание по центру
+  children: <Widget>[
+    Text('Элемент 1'),
+    Text('Элемент 2'),
+    Text('Элемент 3'),
+  ],
+)
